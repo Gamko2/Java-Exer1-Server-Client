@@ -5,6 +5,9 @@
  */
 package distr.exer1;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +38,16 @@ public class Schedule {
            }
        }
        return 10-lessonCount;
+   }
+   
+   public void saveToFile(String filename) throws IOException{
+     FileWriter fw= new FileWriter(filename);
+     BufferedWriter bw = new BufferedWriter(fw);
+     for (Lesson lesson: getAllLessons()){
+         bw.write(lesson.toString());
+         bw.write("\r\n");
+     }
+     bw.close();
    }
    
 }

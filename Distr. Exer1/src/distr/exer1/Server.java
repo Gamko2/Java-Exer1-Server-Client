@@ -41,9 +41,28 @@ public class Server {
               schedule.addLesson(new Lesson(commands[1],commands[2],commands[3]));
               out.println("Lesson added");
           break;
+          case "removeLesson":
+              schedule.removeLesson(new Lesson(commands[1],commands[2],commands[3]));
+              out.println("Lesson removed");
+          break;    
+          case "getAllLessons":
+              String all="";
+              for (Lesson lesson: schedule.getAllLessons()){
+               all= all+lesson.toString();   
+              }
+              out.println(all);
+          break;    
+          case "getFreeTime":
+              out.println(String.valueOf(schedule.getFreeTime(commands[1])));
+          break;    
+          
+          case "exit":
+              schedule.saveToFile("log.txt");
+              running=false;
+              break;
           default:
               out.println("Invalid command");
-          
+          break;
           
       }
       for (Lesson lesson: schedule.getAllLessons()){

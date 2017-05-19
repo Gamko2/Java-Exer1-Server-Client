@@ -54,4 +54,19 @@ public class Lesson {
   public String toString(){
    return title +" " +day+" " +startTime;   
   }
+  
+  @Override
+  public boolean equals (Object other){
+  
+      if (other!= null && other instanceof Lesson){
+      Lesson compare=(Lesson)other;
+      
+     
+    
+           return title.equals(compare.title)&& day.equals(compare.day)&&startTime.equals(compare.startTime);
+           
+       }
+       return false;
+  }
+      
 }

@@ -33,6 +33,7 @@ public class Client {
                    
             
             if (input.equals("exit")){
+                pw.println("exit");
                 running=false;
             }
             else {
